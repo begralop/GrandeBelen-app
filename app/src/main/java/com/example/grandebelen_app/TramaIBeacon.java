@@ -21,73 +21,160 @@ public class TramaIBeacon {
     private byte iBeaconType = 0 ; // 1 byte
     private byte iBeaconLength = 0 ; // 1 byte
 
+
+    // Métodos GETTERS para obtener los atributos anteriormente declarados
+
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener prefijo
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte prefijo.
+     */
     // -------------------------------------------------------------------------------
     public byte[] getPrefijo() {
         return prefijo;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener uuid
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte uuid.
+     */
     // -------------------------------------------------------------------------------
     public byte[] getUUID() {
         return uuid;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener major
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte major.
+     */
     // -------------------------------------------------------------------------------
     public byte[] getMajor() {
         return major;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener minor
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte minor.
+     */
     // -------------------------------------------------------------------------------
     public byte[] getMinor() {
         return minor;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener txPower
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte txPower.
+     */
     // -------------------------------------------------------------------------------
     public byte getTxPower() {
         return txPower;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener losBytes
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte losBytes.
+     */
     // -------------------------------------------------------------------------------
     public byte[] getLosBytes() {
         return losBytes;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener advFlags
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte advFlags.
+     */
     // -------------------------------------------------------------------------------
     public byte[] getAdvFlags() {
         return advFlags;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener advHeader
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte advHeader.
+     */
     // -------------------------------------------------------------------------------
     public byte[] getAdvHeader() {
         return advHeader;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener companyID
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte companyID.
+     */
     // -------------------------------------------------------------------------------
     public byte[] getCompanyID() {
         return companyID;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener iBeaconType
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte iBeaconType.
+     */
     // -------------------------------------------------------------------------------
     public byte getiBeaconType() {
         return iBeaconType;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método get para obtener iBeaconLength
+     *
+     * No le pasamos nada
+     *
+     * Byte[] - Devuelve el byte iBeaconLength.
+     */
     // -------------------------------------------------------------------------------
     public byte getiBeaconLength() {
         return iBeaconLength;
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Constructor de la clase al que le pasamos el array de bytes
+     *
+     * {Byte[]} bytes - Le pasamos el array de bytes
+     *
+     * No devuelve nada ya que se trata del constructor
+     */
     // -------------------------------------------------------------------------------
     public TramaIBeacon(byte[] bytes ) {
         this.losBytes = bytes;

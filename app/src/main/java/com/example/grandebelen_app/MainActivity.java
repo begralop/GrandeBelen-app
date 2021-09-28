@@ -16,18 +16,31 @@ import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 // ------------------------------------------------------------------
 // ------------------------------------------------------------------
-
 public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
@@ -89,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
         byte[] bytes = resultado.getScanRecord().getBytes();
         int rssi = resultado.getRssi();
 
-        Log.d(ETIQUETA_LOG, " ****************************************************");
-        Log.d(ETIQUETA_LOG, " ****** DISPOSITIVO DETECTADO BTLE ****************** ");
-        Log.d(ETIQUETA_LOG, " ****************************************************");
+        Log.d(ETIQUETA_LOG, " ******************");
+        Log.d(ETIQUETA_LOG, " ** DISPOSITIVO DETECTADO BTLE ****** ");
+        Log.d(ETIQUETA_LOG, " ******************");
         Log.d(ETIQUETA_LOG, " nombre = " + bluetoothDevice.getName());
         Log.d(ETIQUETA_LOG, " toString = " + bluetoothDevice.toString());
 
@@ -125,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, " minor  = " + Utilidades.bytesToHexString(tib.getMinor()) + "( "
                 + Utilidades.bytesToInt(tib.getMinor()) + " ) ");
         Log.d(ETIQUETA_LOG, " txPower  = " + Integer.toHexString(tib.getTxPower()) + " ( " + tib.getTxPower() + " )");
-        Log.d(ETIQUETA_LOG, " ****************************************************");
+        Log.d(ETIQUETA_LOG, " ******************");
 
     } // ()
 
@@ -168,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado );
         //Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): empezamos a escanear buscando: " + dispositivoBuscado
-          //      + " -> " + Utilidades.stringToUUID( dispositivoBuscado ) );
+        //      + " -> " + Utilidades.stringToUUID( dispositivoBuscado ) );
 
         this.elEscanner.startScan( this.callbackDelEscaneo );
     } // ()
@@ -214,6 +227,60 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, " boton detener busqueda dispositivos BTLE Pulsado" );
         this.detenerBusquedaDispositivosBTLE();
     } // ()
+
+
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    /*
+     * Método para subir datos fake para así comprobar que funciona correctamente la subida de datos a la base de datos
+     *
+     * {String} URL - Le pasamos la URL de la base de datos
+     *
+     * No devuelve nada
+     */
+    //--------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    public void subirDatosFake(String URL){
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this); // Realizamos una petición
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(), "Operacion realizada con éxito", Toast.LENGTH_LONG).show();
+            }
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(ETIQUETA_LOG, error.toString());
+            }
+        })
+        {
+
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError { // Declaramos un map para almacenar los datos fake
+                Map<String, String> parametros = new LinkedHashMap<>();
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"); // Obtenemos la hora
+                LocalDateTime now = LocalDateTime.now();
+                parametros.put("momento", dtf.format(now)); // Añadimos los datos que queremos que almacene
+                parametros.put("ubicacion", "CALUM");
+                parametros.put("valor", "70");
+                parametros.put("idMagnitud", "SO2");
+                return parametros;
+            }
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                5000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        requestQueue.add(stringRequest);
+
+    }
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -301,11 +368,4 @@ public class MainActivity extends AppCompatActivity {
         // Other 'case' lines to check for other
         // permissions this app might request.
     } // ()
-
-} // class
-// --------------------------------------------------------------
-// --------------------------------------------------------------
-// --------------------------------------------------------------
-// --------------------------------------------------------------
-
-
+}

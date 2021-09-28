@@ -8,96 +8,160 @@ import java.util.UUID;
 // -----------------------------------------------------------------------------------
 // @author: Jordi Bataller i Mascarell
 // -----------------------------------------------------------------------------------
-public class Utilidades {
+public class Utilidades { // Declaramos la clase pública Utilidades
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma los strings a bytes
+     *
+     * {String} texto - Le pasamos un string
+     *
+     * Byte[] - Devuelve el string que se le ha pasado transformado a bytes.
+     */
     // -------------------------------------------------------------------------------
     public static byte[] stringToBytes ( String texto ) {
-        return texto.getBytes();
+        return texto.getBytes(); // Te devuelve los bytes que componen el string
         // byte[] b = string.getBytes(StandardCharsets.UTF_8); // Ja
     } // ()
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma los strings a UUID
+     *
+     * {String} texto - Le pasamos un string
+     *
+     * UUID - Devuelve el string que se le ha pasado transformado a UUID.
+     */
     // -------------------------------------------------------------------------------
     public static UUID stringToUUID( String uuid ) {
-        if ( uuid.length() != 16 ) {
-            throw new Error( "stringUUID: string no tiene 16 caracteres ");
+        if ( uuid.length() != 16 ) { // Si el tamaño del uuid es diferente a 16
+            throw new Error( "stringUUID: string no tiene 16 caracteres "); // Mostrará como error que no tiene 16 carácteres
         }
-        byte[] comoBytes = uuid.getBytes();
+        byte[] comoBytes = uuid.getBytes(); // Obtenemos los bytes y los almacenamos en una variable
 
-        String masSignificativo = uuid.substring(0, 8);
+        String masSignificativo = uuid.substring(0, 8); // Almacenamos el mas significativo y el menos en diferentes variables
         String menosSignificativo = uuid.substring(8, 16);
-        UUID res = new UUID( Utilidades.bytesToLong( masSignificativo.getBytes() ), Utilidades.bytesToLong( menosSignificativo.getBytes() ) );
+        UUID res = new UUID( Utilidades.bytesToLong( masSignificativo.getBytes() ), Utilidades.bytesToLong( menosSignificativo.getBytes() ) ); // Almacenamos en una nueva variable el nuevo UUID pasándole los parámetros anteriormente obtenidos
 
         // Log.d( MainActivity.ETIQUETA_LOG, " \n\n***** stringToUUID *** " + uuid  + "=?=" + Utilidades.uuidToString( res ) );
 
         // UUID res = UUID.nameUUIDFromBytes( comoBytes ); no va como quiero
 
-        return res;
+        return res; // Devuelve la variable res que almacenaba el nuevo UUID
     } // ()
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma los UUID a string
+     *
+     * {UUID} uuid - Le pasamos un UUID
+     *
+     * String - Devuelve el UUID que se le ha pasado transformado a string.
+     */
     // -------------------------------------------------------------------------------
-    public static String uuidToString ( UUID uuid ) {
-        return bytesToString( dosLongToBytes( uuid.getMostSignificantBits(), uuid.getLeastSignificantBits() ) );
+    public static String uuidToString ( UUID uuid ) { // Método que transforma uuid a strings pasándole un uuid
+        return bytesToString( dosLongToBytes( uuid.getMostSignificantBits(), uuid.getLeastSignificantBits() ) ); // Devuelve el string pasándole los datos del uuid
     } // ()
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma los UUID a hexString
+     *
+     * {UUID} uuid - Le pasamos un UUID
+     *
+     * String - Devuelve el UUID que se le ha pasado transformado a hexString.
+     */
     // -------------------------------------------------------------------------------
-    public static String uuidToHexString ( UUID uuid ) {
-        return bytesToHexString( dosLongToBytes( uuid.getMostSignificantBits(), uuid.getLeastSignificantBits() ) );
+    public static String uuidToHexString ( UUID uuid ) { // Método que transforma uuid a hexStrings pasándole un uuid
+        return bytesToHexString( dosLongToBytes( uuid.getMostSignificantBits(), uuid.getLeastSignificantBits() ) ); // Devuelve el hexString pasándole los datos del uuid
     } // ()
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma los bytes a string
+     *
+     * {byte[]} bytes - Le pasamos el array de bytes
+     *
+     * String - Devuelve los bytes que se le ha pasado transformados a string
+     */
     // -------------------------------------------------------------------------------
-    public static String bytesToString( byte[] bytes ) {
-        if (bytes == null ) {
-            return "";
+    public static String bytesToString( byte[] bytes ) { // Método que transforma los bytes a string pásandole una lista de bytes
+        if (bytes == null ) { // Si el array es null
+            return ""; // Devuelve comillas
         }
 
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bytes) {
-            sb.append( (char) b );
+        StringBuilder sb = new StringBuilder(); // Si no declaramos un StringBuilder
+        for (byte b : bytes) { // Y para cada byte en el array de bytes
+            sb.append( (char) b ); // Agregamos la representación de cadena del argumento en cuestión
         }
-        return sb.toString();
+        return sb.toString(); // Devuelve el array completo a string
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma dos long a bytes
+     *
+     * {long} masSignificativos - Le pasamos un long
+     * {long} menosSignificativos - Le pasamos otro long
+     *
+     * Byte[] - Devuelve los longs que se le han pasado transformados a bytes
+     */
     // -------------------------------------------------------------------------------
-    public static byte[] dosLongToBytes( long masSignificativos, long menosSignificativos ) {
-        ByteBuffer buffer = ByteBuffer.allocate( 2 * Long.BYTES );
-        buffer.putLong( masSignificativos );
+    public static byte[] dosLongToBytes( long masSignificativos, long menosSignificativos ) { // Método que transforma dos longs de los uuid a bytes
+        ByteBuffer buffer = ByteBuffer.allocate( 2 * Long.BYTES ); // Declaramos un buffer
+        buffer.putLong( masSignificativos ); // Le añadimos los parámetros que le hemos pasados al método
         buffer.putLong( menosSignificativos );
-        return buffer.array();
+        return buffer.array(); // Devolvemos el array del buffer
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma los bytes a int
+     *
+     * {byte[]} bytes - Le pasamos el array de bytes
+     *
+     * Int - Devuelve los bytes que se le han pasado transformados a int
+     */
     // -------------------------------------------------------------------------------
-    public static int bytesToInt( byte[] bytes ) {
+    public static int bytesToInt( byte[] bytes ) { // Método que transforma un array de bytes a ints
         return new BigInteger(bytes).intValue();
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma los bytes a long
+     *
+     * {byte[]} bytes - Le pasamos el array de bytes
+     *
+     * Long - Devuelve los bytes que se le han pasado transformados a long
+     */
     // -------------------------------------------------------------------------------
-    public static long bytesToLong( byte[] bytes ) {
+    public static long bytesToLong( byte[] bytes ) { // Método que transforma un array de bytes a longs
         return new BigInteger(bytes).longValue();
     }
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma los bytes a int
+     *
+     * {byte[]} bytes - Le pasamos el array de bytes
+     *
+     * Int - Devuelve los bytes que se le han pasado transformados a int
+     */
     // -------------------------------------------------------------------------------
-    public static int bytesToIntOK( byte[] bytes ) {
-        if (bytes == null ) {
-            return 0;
+    public static int bytesToIntOK( byte[] bytes ) { // Método que transforma un array de bytes a ints
+        if (bytes == null ) { // Si el array es nulo
+            return 0; // Devuelve 0
         }
 
-        if ( bytes.length > 4 ) {
-            throw new Error( "demasiados bytes para pasar a int ");
+        if ( bytes.length > 4 ) { // Si el tamaño es mayor a 4
+            throw new Error( "demasiados bytes para pasar a int "); // Error porque hay demasiados bytes para pasarlos a int
         }
-        int res = 0;
+        int res = 0; // Res igualado a 0
 
 
 
-        for( byte b : bytes ) {
+        for( byte b : bytes ) { // Para cada bytes del array de bytes
            /*
            Log.d( MainActivity.ETIQUETA_LOG, "bytesToInt(): byte: hex=" + Integer.toHexString( b )
                    + " dec=" + b + " bin=" + Integer.toBinaryString( b ) +
@@ -122,19 +186,26 @@ public class Utilidades {
     } // ()
 
     // -------------------------------------------------------------------------------
+    /*
+     * Método que transforma los strings a hexString
+     *
+     * {byte[]} bytes - Le pasamos el array de bytes
+     *
+     * String - Devuelve los bytes que se le han pasado transformados a hexString
+     */
     // -------------------------------------------------------------------------------
-    public static String bytesToHexString( byte[] bytes ) {
+    public static String bytesToHexString( byte[] bytes ) { // Método que transforma un array de bytes a hexString
 
-        if (bytes == null ) {
-            return "";
+        if (bytes == null ) { // Si el array es nulo
+            return ""; // No devuelve nada
         }
 
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bytes) {
-            sb.append(String.format("%02x", b));
+        StringBuilder sb = new StringBuilder(); // Si no es nulo, declaramos StringBuilder
+        for (byte b : bytes) { // para cada byte del array de bytes
+            sb.append(String.format("%02x", b)); //  Agregamos la representación de cadena del argumento en cuestión
             sb.append(':');
         }
-        return sb.toString();
+        return sb.toString(); // Devuelve el string
     } // ()
 } // class
 // -----------------------------------------------------------------------------------
