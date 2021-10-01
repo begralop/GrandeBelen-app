@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -42,6 +44,9 @@ import java.util.UUID;
 // ------------------------------------------------------------------
 // ------------------------------------------------------------------
 public class MainActivity extends AppCompatActivity {
+
+    EditText txtMediciones;
+    Button btnInsertar;
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -228,6 +233,38 @@ public class MainActivity extends AppCompatActivity {
         this.detenerBusquedaDispositivosBTLE();
     } // ()
 
+    public void boto(View quien) {
+        Log.d("clienterestandroid", "boton_enviar_pulsado");
+
+
+        // ojo: creo que hay que crear uno nuevo cada vez
+        PeticionarioREST elPeticionario = new PeticionarioREST();
+
+		/*
+
+		   enviarPeticion( "hola", function (res) {
+		   		res
+		   })
+
+        elPeticionario.hacerPeticionREST("GET",  "http://158.42.144.126:8080/prueba", null,
+			(int codigo, String cuerpo) => { } );
+
+		   */
+        //la contrabarra es pa clavar la cometa dins del string sense tancar el stringç
+        //http://localhost/phpmyadmin/sql.php?db=android_mysql&table=datosmedidos&pos=0
+        String textoJSON = "{\"Medicion\":\"" + txtMediciones.getText() + "\"}";
+        elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_sprint0/insertar.php", textoJSON,
+                new PeticionarioREST.RespuestaREST() {
+                    @Override
+                    public void callback(int codigo, String cuerpo) {
+                        txtMediciones.setText("codigo respuesta= " + codigo + " <-> \n" + cuerpo);
+                    }
+                }
+        );
+
+
+    }
+
 
     //--------------------------------------------------------------------------
     //--------------------------------------------------------------------------
@@ -334,6 +371,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        txtMediciones = findViewById(R.id.txtMediciones);
 
         Log.d(ETIQUETA_LOG, " onCreate(): empieza ");
 
