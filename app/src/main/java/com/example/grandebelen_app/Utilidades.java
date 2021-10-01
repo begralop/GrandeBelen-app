@@ -149,7 +149,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
      * Int - Devuelve los bytes que se le han pasado transformados a int
      */
     // -------------------------------------------------------------------------------
-    public static int bytesToIntOK( byte[] bytes ) { // Método que transforma un array de bytes a ints
+    public static int bytesToIntOK( byte[] bytes ) {
         if (bytes == null ) { // Si el array es nulo
             return 0; // Devuelve 0
         }
