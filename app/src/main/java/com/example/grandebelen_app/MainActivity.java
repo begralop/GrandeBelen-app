@@ -10,6 +10,7 @@ import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanResult;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -46,6 +47,8 @@ import java.util.UUID;
 public class MainActivity extends AppCompatActivity {
 
     EditText txtMediciones;
+
+    private Intent elIntentDelServicio = null;
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -311,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
         //la contrabarra es pa clavar la cometa dins del string sense tancar el stringç
         //http://localhost/phpmyadmin/sql.php?db=android_mysql&table=datosmedidos&pos=0
         String textoJSON = "{\"Medicion\":\"" + txtMediciones.getText() + "\"}";
-        elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_sprint0/insertar.php", textoJSON,
+        elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_sprint0/guardarMediciones.php", textoJSON,
                 new PeticionarioREST.RespuestaREST() {
                     @Override
                     public void callback(int codigo, String cuerpo) {
@@ -372,8 +375,44 @@ public class MainActivity extends AppCompatActivity {
             Log.d(ETIQUETA_LOG, " inicializarBlueTooth(): parece que YA tengo los permisos necesarios !!!!");
 
         }
+    } //
+
+    // ---------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
+    public void botonArrancarServicioPulsado( View v ) {
+        Log.d(ETIQUETA_LOG, " boton arrancar servicio Pulsado" );
+
+        if ( this.elIntentDelServicio != null ) {
+            // ya estaba arrancado
+            return;
+        }
+
+        Log.d(ETIQUETA_LOG, " MainActivity.constructor : voy a arrancar el servicio");
+
+        this.elIntentDelServicio = new Intent(this, ServicioEscuharBeacons.class);
+
+        this.elIntentDelServicio.putExtra("tiempoDeEspera", (long) 5000);
+        startService( this.elIntentDelServicio );
+
     } // ()
 
+    // ---------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
+    public void botonDetenerServicioPulsado( View v ) {
+
+        if ( this.elIntentDelServicio == null ) {
+            // no estaba arrancado
+            return;
+        }
+
+        stopService( this.elIntentDelServicio );
+
+        this.elIntentDelServicio = null;
+
+        Log.d(ETIQUETA_LOG, " boton detener servicio Pulsado" );
+
+
+    } // ()
 
     // --------------------------------------------------------------
     /*

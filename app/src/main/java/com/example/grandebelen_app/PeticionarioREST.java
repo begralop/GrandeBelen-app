@@ -31,8 +31,15 @@ public class PeticionarioREST extends AsyncTask<Void, Void, Boolean> {
     private int codigoRespuesta;
     private String cuerpoRespuesta = "";
 
-    // --------------------------------------------------------------------
-    // --------------------------------------------------------------------
+    // --------------------------------------------------------------
+    /*
+     * Método On create
+     *
+     * Bundle savedInstanceState
+     *
+     * No devuelve nada
+     */
+    // --------------------------------------------------------------
     public void hacerPeticionREST (String metodo, String urlDestino, String cuerpo, RespuestaREST  laRespuesta) {
         this.elMetodo = metodo;
         this.urlDestino = urlDestino;
