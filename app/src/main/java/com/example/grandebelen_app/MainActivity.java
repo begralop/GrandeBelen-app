@@ -46,7 +46,6 @@ import java.util.UUID;
 public class MainActivity extends AppCompatActivity {
 
     EditText txtMediciones;
-    Button btnInsertar;
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -61,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
     private ScanCallback callbackDelEscaneo = null;
 
     // --------------------------------------------------------------
+    /*
+     * Método para buscar todos los dispositivos Bluetooth
+     *
+     * No le pasamos nada
+     *
+     * No devuelve nada
+     */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void buscarTodosLosDispositivosBTLE() {
@@ -99,6 +105,13 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    /*
+     * Método para buscar la información del dispositivo Bluetooth
+     *
+     * ScanResult resultado
+     *
+     * No devuelve nada
+     */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void mostrarInformacionDispositivoBTLE(ScanResult resultado ) {
@@ -148,6 +161,13 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    /*
+     * Método para buscar este dispositivo Bluetooth
+     *
+     * {char} dispositivoBuscado
+     *
+     * No devuelve nada
+     */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void buscarEsteDispositivoBTLE(final String dispositivoBuscado ) {
@@ -192,6 +212,13 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    /*
+     * Método para detener la búsqueda de dispositivos Bluetooth
+     *
+     * {View} v
+     *
+     * No devuelve nada
+     */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void detenerBusquedaDispositivosBTLE() {
@@ -206,6 +233,13 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    /*
+     * Método para buscar dispositivos Bluetooth
+     *
+     * {View} v
+     *
+     * No devuelve nada
+     */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void botonBuscarDispositivosBTLEPulsado(View v ) {
@@ -214,6 +248,13 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    /*
+     * Método para buscar nuestro dispositivo Bluetooth
+     *
+     * {View} v
+     *
+     * No devuelve nada
+     */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void botonBuscarNuestroDispositivoBTLEPulsado(View v ) {
@@ -226,6 +267,13 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    /*
+     * Método para subir datos fake para así comprobar que funciona correctamente la subida de datos a la base de datos
+     *
+     * {String} URL - Le pasamos la URL de la base de datos
+     *
+     * No devuelve nada
+     */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void botonDetenerBusquedaDispositivosBTLEPulsado(View v ) {
@@ -233,7 +281,17 @@ public class MainActivity extends AppCompatActivity {
         this.detenerBusquedaDispositivosBTLE();
     } // ()
 
-    public void boto(View quien) {
+
+    // --------------------------------------------------------------
+    /*
+     * Método para insertar datos para así comprobar que funciona correctamente la subida de datos a la base de datos
+     *
+     * {View} quien
+     *
+     * No devuelve nada
+     */
+    // --------------------------------------------------------------
+    public void insertarDatos(View quien) {
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
 
@@ -265,61 +323,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    //--------------------------------------------------------------------------
-    //--------------------------------------------------------------------------
+    // --------------------------------------------------------------
     /*
-     * Método para subir datos fake para así comprobar que funciona correctamente la subida de datos a la base de datos
+     * Método para inicializar el Bluetooth
      *
-     * {String} URL - Le pasamos la URL de la base de datos
+     * {View} quien
      *
      * No devuelve nada
      */
-    //--------------------------------------------------------------------------
-    //--------------------------------------------------------------------------
-    public void subirDatosFake(String URL){
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this); // Realizamos una petición
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "Operacion realizada con éxito", Toast.LENGTH_LONG).show();
-            }
-
-
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(ETIQUETA_LOG, error.toString());
-            }
-        })
-        {
-
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError { // Declaramos un map para almacenar los datos fake
-                Map<String, String> parametros = new LinkedHashMap<>();
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"); // Obtenemos la hora
-                LocalDateTime now = LocalDateTime.now();
-                parametros.put("momento", dtf.format(now)); // Añadimos los datos que queremos que almacene
-                parametros.put("ubicacion", "CALUM");
-                parametros.put("valor", "70");
-                parametros.put("idMagnitud", "SO2");
-                return parametros;
-            }
-        };
-
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                5000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-        requestQueue.add(stringRequest);
-
-    }
-
-    // --------------------------------------------------------------
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void inicializarBlueTooth() {
@@ -365,6 +376,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     // --------------------------------------------------------------
+    /*
+     * Método On create
+     *
+     * Bundle savedInstanceState
+     *
+     * No devuelve nada
+     */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -382,6 +400,15 @@ public class MainActivity extends AppCompatActivity {
     } // onCreate()
 
     // --------------------------------------------------------------
+    /*
+     * Método para pedir permisos
+     *
+     * Z requestCode
+     * [char] permissions
+     * [Z] grantResults
+     *
+     * No devuelve nada
+     */
     // --------------------------------------------------------------
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
