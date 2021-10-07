@@ -1,5 +1,5 @@
 
-package com.example.grandebelen_app;
+package com.example.grandebelen_app.logicaFake;
 // ------------------------------------------------------------------
 // ------------------------------------------------------------------
 
@@ -14,33 +14,21 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.ParcelUuid;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.grandebelen_app.R;
+import com.example.grandebelen_app.ServicioEscuharBeacons;
+import com.example.grandebelen_app.TramaIBeacon;
+import com.example.grandebelen_app.Utilidades;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 // ------------------------------------------------------------------
 // ------------------------------------------------------------------
@@ -66,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para buscar todos los dispositivos Bluetooth
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -111,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para buscar la información del dispositivo Bluetooth
      *
-     * ScanResult resultado
+     * @param ScanResult resultado
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -167,9 +155,9 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para buscar este dispositivo Bluetooth
      *
-     * {char} dispositivoBuscado
+     * @param {char} dispositivoBuscado
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -218,9 +206,9 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para detener la búsqueda de dispositivos Bluetooth
      *
-     * {View} v
+     * @param No le pasamos nad
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -239,9 +227,9 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para buscar dispositivos Bluetooth
      *
-     * {View} v
+     * @param {View} v
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -254,9 +242,9 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para buscar nuestro dispositivo Bluetooth
      *
-     * {View} v
+     * @param {View} v
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -273,9 +261,9 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para subir datos fake para así comprobar que funciona correctamente la subida de datos a la base de datos
      *
-     * {String} URL - Le pasamos la URL de la base de datos
+     * @param {String} URL - Le pasamos la URL de la base de datos
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -289,12 +277,12 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para insertar datos para así comprobar que funciona correctamente la subida de datos a la base de datos
      *
-     * {View} quien
+     * @param {View} v
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
-    public void insertarDatos(View quien) {
+    public void guardarMedicion(View v) {
         Log.d("clienterestandroid", "boton_enviar_pulsado");
 
 
@@ -314,7 +302,7 @@ public class MainActivity extends AppCompatActivity {
         //la contrabarra es pa clavar la cometa dins del string sense tancar el stringç
         //http://localhost/phpmyadmin/sql.php?db=android_mysql&table=datosmedidos&pos=0
         String textoJSON = "{\"Medicion\":\"" + txtMediciones.getText() + "\"}";
-        elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_sprint0/guardarMediciones.php", textoJSON,
+        elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_app_sprint0/guardarMediciones.php", textoJSON,
                 new PeticionarioREST.RespuestaREST() {
                     @Override
                     public void callback(int codigo, String cuerpo) {
@@ -330,9 +318,9 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para inicializar el Bluetooth
      *
-     * {View} quien
+     * @param No le pasamos nada
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -377,8 +365,15 @@ public class MainActivity extends AppCompatActivity {
         }
     } //
 
-    // ---------------------------------------------------------------------------------------------
-    // ---------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------
+    /*
+     * Método para arrancar el servicio
+     *
+     * @param v: View
+     *
+     * @return No devuelve nada
+     */
+    // --------------------------------------------------------------
     public void botonArrancarServicioPulsado( View v ) {
         Log.d(ETIQUETA_LOG, " boton arrancar servicio Pulsado" );
 
@@ -396,8 +391,15 @@ public class MainActivity extends AppCompatActivity {
 
     } // ()
 
-    // ---------------------------------------------------------------------------------------------
-    // ---------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------
+    /*
+     * Método para detener el servicio
+     *
+     * @param v: View
+     *
+     * @return No devuelve nada
+     */
+    // --------------------------------------------------------------
     public void botonDetenerServicioPulsado( View v ) {
 
         if ( this.elIntentDelServicio == null ) {
@@ -418,9 +420,9 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método On create
      *
-     * Bundle savedInstanceState
+     * @param Bundle savedInstanceState
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -442,11 +444,11 @@ public class MainActivity extends AppCompatActivity {
     /*
      * Método para pedir permisos
      *
-     * Z requestCode
-     * [char] permissions
-     * [Z] grantResults
+     * @param Z requestCode
+     * @param [char] permissions
+     * @param [Z] grantResults
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     public void onRequestPermissionsResult(int requestCode, String[] permissions,

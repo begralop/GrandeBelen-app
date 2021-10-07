@@ -6,7 +6,8 @@ import java.nio.ByteBuffer;
 import java.util.UUID;
 
 // -----------------------------------------------------------------------------------
-// @author: Jordi Bataller i Mascarell
+// @author: Jordi Bataller i Mascarel
+
 // -----------------------------------------------------------------------------------
 public class Utilidades { // Declaramos la clase pública Utilidades
 
@@ -14,9 +15,9 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma los strings a bytes
      *
-     * {String} texto - Le pasamos un string
+     * @param {String} texto - Le pasamos un string
      *
-     * Byte[] - Devuelve el string que se le ha pasado transformado a bytes.
+     * @return Byte[] - Devuelve el string que se le ha pasado transformado a bytes.
      */
     // -------------------------------------------------------------------------------
     public static byte[] stringToBytes ( String texto ) {
@@ -28,9 +29,9 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma los strings a UUID
      *
-     * {String} texto - Le pasamos un string
+     * @param {String} texto - Le pasamos un string
      *
-     * UUID - Devuelve el string que se le ha pasado transformado a UUID.
+     * @return UUID - Devuelve el string que se le ha pasado transformado a UUID.
      */
     // -------------------------------------------------------------------------------
     public static UUID stringToUUID( String uuid ) {
@@ -54,9 +55,9 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma los UUID a string
      *
-     * {UUID} uuid - Le pasamos un UUID
+     * @param {UUID} uuid - Le pasamos un UUID
      *
-     * String - Devuelve el UUID que se le ha pasado transformado a string.
+     * @return String - Devuelve el UUID que se le ha pasado transformado a string.
      */
     // -------------------------------------------------------------------------------
     public static String uuidToString ( UUID uuid ) { // Método que transforma uuid a strings pasándole un uuid
@@ -67,9 +68,9 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma los UUID a hexString
      *
-     * {UUID} uuid - Le pasamos un UUID
+     * @param {UUID} uuid - Le pasamos un UUID
      *
-     * String - Devuelve el UUID que se le ha pasado transformado a hexString.
+     * @return String - Devuelve el UUID que se le ha pasado transformado a hexString.
      */
     // -------------------------------------------------------------------------------
     public static String uuidToHexString ( UUID uuid ) { // Método que transforma uuid a hexStrings pasándole un uuid
@@ -80,9 +81,9 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma los bytes a string
      *
-     * {byte[]} bytes - Le pasamos el array de bytes
+     * @param {byte[]} bytes - Le pasamos el array de bytes
      *
-     * String - Devuelve los bytes que se le ha pasado transformados a string
+     * @return String - Devuelve los bytes que se le ha pasado transformados a string
      */
     // -------------------------------------------------------------------------------
     public static String bytesToString( byte[] bytes ) { // Método que transforma los bytes a string pásandole una lista de bytes
@@ -101,10 +102,10 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma dos long a bytes
      *
-     * {long} masSignificativos - Le pasamos un long
-     * {long} menosSignificativos - Le pasamos otro long
+     * @param {long} masSignificativos - Le pasamos un long
+     * @param {long} menosSignificativos - Le pasamos otro long
      *
-     * Byte[] - Devuelve los longs que se le han pasado transformados a bytes
+     * @return Byte[] - Devuelve los longs que se le han pasado transformados a bytes
      */
     // -------------------------------------------------------------------------------
     public static byte[] dosLongToBytes( long masSignificativos, long menosSignificativos ) { // Método que transforma dos longs de los uuid a bytes
@@ -118,9 +119,9 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma los bytes a int
      *
-     * {byte[]} bytes - Le pasamos el array de bytes
+     * @param {byte[]} bytes - Le pasamos el array de bytes
      *
-     * Int - Devuelve los bytes que se le han pasado transformados a int
+     * @return Int - Devuelve los bytes que se le han pasado transformados a int
      */
     // -------------------------------------------------------------------------------
     public static int bytesToInt( byte[] bytes ) { // Método que transforma un array de bytes a ints
@@ -131,9 +132,9 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma los bytes a long
      *
-     * {byte[]} bytes - Le pasamos el array de bytes
+     * @param {byte[]} bytes - Le pasamos el array de bytes
      *
-     * Long - Devuelve los bytes que se le han pasado transformados a long
+     * @return Long - Devuelve los bytes que se le han pasado transformados a long
      */
     // -------------------------------------------------------------------------------
     public static long bytesToLong( byte[] bytes ) { // Método que transforma un array de bytes a longs
@@ -144,9 +145,9 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma los bytes a int
      *
-     * {byte[]} bytes - Le pasamos el array de bytes
+     * @param {byte[]} bytes - Le pasamos el array de bytes
      *
-     * Int - Devuelve los bytes que se le han pasado transformados a int
+     * @return Int - Devuelve los bytes que se le han pasado transformados a int
      */
     // -------------------------------------------------------------------------------
     public static int bytesToIntOK( byte[] bytes ) {
@@ -189,9 +190,9 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     /*
      * Método que transforma los strings a hexString
      *
-     * {byte[]} bytes - Le pasamos el array de bytes
+     * @param {byte[]} bytes - Le pasamos el array de bytes
      *
-     * String - Devuelve los bytes que se le han pasado transformados a hexString
+     * @return String - Devuelve los bytes que se le han pasado transformados a hexString
      */
     // -------------------------------------------------------------------------------
     public static String bytesToHexString( byte[] bytes ) { // Método que transforma un array de bytes a hexString

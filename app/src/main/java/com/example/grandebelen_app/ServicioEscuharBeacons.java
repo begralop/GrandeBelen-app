@@ -21,11 +21,11 @@ public class ServicioEscuharBeacons  extends IntentService {
 
     // --------------------------------------------------------------
     /*
-     * Método On create
+     * Método del servicio para escuchar beacons
      *
-     * Bundle savedInstanceState
+     * @param No le pasamos nada
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     public ServicioEscuharBeacons(  ) {
@@ -52,8 +52,15 @@ public class ServicioEscuharBeacons  extends IntentService {
 
      */
 
-    // ---------------------------------------------------------------------------------------------
-    // ---------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------
+    /*
+     * Método para parar el servicio
+     *
+     * @param No le pasamos nada
+     *
+     * @return No devuelve nada
+     */
+    // --------------------------------------------------------------
     public void parar () {
 
         Log.d(ETIQUETA_LOG, " ServicioEscucharBeacons.parar() " );
@@ -70,8 +77,15 @@ public class ServicioEscuharBeacons  extends IntentService {
 
     }
 
-    // ---------------------------------------------------------------------------------------------
-    // ---------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------
+    /*
+     * Método para destruir el servicio
+     *
+     * @param No le pasamos nada
+     *
+     * @return No devuelve nada
+     */
+    // --------------------------------------------------------------
     public void onDestroy() {
 
         Log.d(ETIQUETA_LOG, " ServicioEscucharBeacons.onDestroy() " );

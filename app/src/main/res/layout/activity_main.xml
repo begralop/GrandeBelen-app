@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".logicaFake.MainActivity">
 
     <Button
         android:id="@+id/botonBuscarDispositivosBTLE"
@@ -58,7 +58,7 @@
         android:id="@+id/btnInsertar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="insertarDatos"
+        android:onClick="guardarMedicion"
         android:text="Insertar datos"
         app:backgroundTint="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"

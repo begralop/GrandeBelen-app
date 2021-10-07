@@ -1,5 +1,5 @@
 
-package com.example.grandebelen_app;
+package com.example.grandebelen_app.logicaFake;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -33,11 +33,14 @@ public class PeticionarioREST extends AsyncTask<Void, Void, Boolean> {
 
     // --------------------------------------------------------------
     /*
-     * Método On create
+     * Método para hacer la petición REST
      *
-     * Bundle savedInstanceState
+     * @param {String} metodo. Le pasamos el metodo
+     * @param {String} urlDestino. Le pasamos la url de destino
+     * @param {String} cuerpo. Le pasamos el cuerpo
+     * @param RespuestaREST laRespuesta. Le pasamos la respuesta de la interfaz de RespuestaREST
      *
-     * No devuelve nada
+     * @return No devuelve nada
      */
     // --------------------------------------------------------------
     public void hacerPeticionREST (String metodo, String urlDestino, String cuerpo, RespuestaREST  laRespuesta) {
@@ -49,14 +52,24 @@ public class PeticionarioREST extends AsyncTask<Void, Void, Boolean> {
         this.execute(); // otro thread ejecutará doInBackground()
     }
 
-    // --------------------------------------------------------------------
-    // --------------------------------------------------------------------
+    /*
+     * Método para PeticionarioREST
+     *
+     * @param No le pasamos nada
+     *
+     * @return No devuelve nada
+     */
     public PeticionarioREST() {
         Log.d("clienterestandroid", "constructor()");
     }
 
-    // --------------------------------------------------------------------
-    // --------------------------------------------------------------------
+    /*
+     * Método para hacerlo en el Background
+     *
+     * @param {Void}
+     *
+     * @return bool: ToF
+     */
     @Override
     protected Boolean doInBackground(Void... params) {
         Log.d("clienterestandroid", "doInBackground()");
@@ -134,8 +147,13 @@ public class PeticionarioREST extends AsyncTask<Void, Void, Boolean> {
         return false; // doInBackground() NO termina bien
     } // ()
 
-    // --------------------------------------------------------------------
-    // --------------------------------------------------------------------
+    /*
+     * Método para el post ejecutado
+     *
+     * @param {Boolean} comoFue
+     *
+     * @return No devuelve nada
+     */
     protected void onPostExecute(Boolean comoFue) {
         // llamado tras doInBackground()
         Log.d("clienterestandroid", "onPostExecute() comoFue = " + comoFue);

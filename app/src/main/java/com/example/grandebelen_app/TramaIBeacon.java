@@ -28,9 +28,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener prefijo
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte prefijo.
+     * @return Byte[] - Devuelve el byte prefijo.
      */
     // -------------------------------------------------------------------------------
     public byte[] getPrefijo() {
@@ -41,9 +41,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener uuid
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte uuid.
+     * @return Byte[] - Devuelve el byte uuid.
      */
     // -------------------------------------------------------------------------------
     public byte[] getUUID() {
@@ -54,9 +54,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener major
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte major.
+     * @return Byte[] - Devuelve el byte major.
      */
     // -------------------------------------------------------------------------------
     public byte[] getMajor() {
@@ -67,9 +67,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener minor
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte minor.
+     * @return Byte[] - Devuelve el byte minor.
      */
     // -------------------------------------------------------------------------------
     public byte[] getMinor() {
@@ -80,9 +80,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener txPower
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte txPower.
+     * @return Byte[] - Devuelve el byte txPower.
      */
     // -------------------------------------------------------------------------------
     public byte getTxPower() {
@@ -93,9 +93,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener losBytes
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte losBytes.
+     * @return Byte[] - Devuelve el byte losBytes.
      */
     // -------------------------------------------------------------------------------
     public byte[] getLosBytes() {
@@ -106,9 +106,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener advFlags
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte advFlags.
+     * @return Byte[] - Devuelve el byte advFlags.
      */
     // -------------------------------------------------------------------------------
     public byte[] getAdvFlags() {
@@ -119,9 +119,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener advHeader
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte advHeader.
+     * @return Byte[] - Devuelve el byte advHeader.
      */
     // -------------------------------------------------------------------------------
     public byte[] getAdvHeader() {
@@ -132,9 +132,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener companyID
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte companyID.
+     * @return Byte[] - Devuelve el byte companyID.
      */
     // -------------------------------------------------------------------------------
     public byte[] getCompanyID() {
@@ -145,9 +145,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener iBeaconType
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte iBeaconType.
+     * @return Byte[] - Devuelve el byte iBeaconType.
      */
     // -------------------------------------------------------------------------------
     public byte getiBeaconType() {
@@ -158,9 +158,9 @@ public class TramaIBeacon {
     /*
      * Método get para obtener iBeaconLength
      *
-     * No le pasamos nada
+     * @param No le pasamos nada
      *
-     * Byte[] - Devuelve el byte iBeaconLength.
+     * @return Byte[] - Devuelve el byte iBeaconLength.
      */
     // -------------------------------------------------------------------------------
     public byte getiBeaconLength() {
@@ -171,9 +171,9 @@ public class TramaIBeacon {
     /*
      * Constructor de la clase al que le pasamos el array de bytes
      *
-     * {Byte[]} bytes - Le pasamos el array de bytes
+     * @param {Byte[]} bytes - Le pasamos el array de bytes
      *
-     * No devuelve nada ya que se trata del constructor
+     * @return No devuelve nada ya que se trata del constructor
      */
     // -------------------------------------------------------------------------------
     public TramaIBeacon(byte[] bytes ) {
