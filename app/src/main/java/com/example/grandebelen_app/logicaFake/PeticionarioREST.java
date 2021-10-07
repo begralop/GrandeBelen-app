@@ -32,7 +32,7 @@ public class PeticionarioREST extends AsyncTask<Void, Void, Boolean> {
     private String cuerpoRespuesta = "";
 
     // --------------------------------------------------------------
-    /*
+    /**
      * Método para hacer la petición REST
      *
      * @param {String} metodo. Le pasamos el metodo
@@ -52,7 +52,7 @@ public class PeticionarioREST extends AsyncTask<Void, Void, Boolean> {
         this.execute(); // otro thread ejecutará doInBackground()
     }
 
-    /*
+    /**
      * Método para PeticionarioREST
      *
      * @param No le pasamos nada
@@ -63,7 +63,7 @@ public class PeticionarioREST extends AsyncTask<Void, Void, Boolean> {
         Log.d("clienterestandroid", "constructor()");
     }
 
-    /*
+    /**
      * Método para hacerlo en el Background
      *
      * @param {Void}
@@ -147,7 +147,7 @@ public class PeticionarioREST extends AsyncTask<Void, Void, Boolean> {
         return false; // doInBackground() NO termina bien
     } // ()
 
-    /*
+    /**
      * Método para el post ejecutado
      *
      * @param {Boolean} comoFue

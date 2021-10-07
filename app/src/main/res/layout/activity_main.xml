@@ -21,7 +21,7 @@
         android:id="@+id/botonDetenerBusquedaDispositivosBTLE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:onClick="botonDetenerBusquedaDispositivosBTLEPulsado"
         android:text="Detener búsaqueda Dispositivos BTLE"
         app:layout_constraintEnd_toEndOf="@+id/botonBuscarDispositivosBTLE"
@@ -33,7 +33,7 @@
         android:id="@+id/botonBuscarNuestroDispositivoBTLE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:onClick="botonBuscarNuestroDispositivoBTLEPulsado"
         android:text="Buscar nuestro dispositivo  BTLE"
         app:layout_constraintEnd_toEndOf="@+id/botonDetenerBusquedaDispositivosBTLE"
@@ -45,38 +45,38 @@
         android:id="@+id/txtMediciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Escriba una medición"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/botonBuscarNuestroDispositivoBTLE"
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="@+id/botonBuscarNuestroDispositivoBTLE"
-        app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
+        app:layout_constraintEnd_toEndOf="@+id/textLongitud"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="@+id/textLongitud"
+        app:layout_constraintTop_toBottomOf="@+id/textLongitud" />
 
     <Button
         android:id="@+id/btnInsertar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="guardarMedicion"
-        android:text="Insertar datos"
+        android:onClick="botonGuardarMedicion"
+        android:text="Insertar medición"
         app:backgroundTint="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txtMediciones"
-        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="@+id/txtMediciones"
         app:layout_constraintTop_toBottomOf="@+id/txtMediciones"
-        app:layout_constraintVertical_bias="0.223" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <Button
         android:id="@+id/boton_arrancar_servicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:onClick="botonArrancarServicioPulsado"
         android:text="Arrancar servicio"
         app:layout_constraintEnd_toEndOf="@+id/botonBuscarNuestroDispositivoBTLE"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="@+id/botonBuscarNuestroDispositivoBTLE"
         app:layout_constraintTop_toBottomOf="@+id/botonBuscarNuestroDispositivoBTLE" />
 
@@ -84,11 +84,33 @@
         android:id="@+id/boton_detener_servicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:onClick="botonDetenerServicioPulsado"
         android:text="Detener servicio"
         app:layout_constraintEnd_toEndOf="@+id/boton_arrancar_servicio"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/boton_arrancar_servicio"
         app:layout_constraintTop_toBottomOf="@+id/boton_arrancar_servicio" />
+
+    <TextView
+        android:id="@+id/textLatitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/boton_detener_servicio"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/boton_detener_servicio"
+        app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
+
+    <TextView
+        android:id="@+id/textLongitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/textLatitud"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textLatitud"
+        app:layout_constraintTop_toBottomOf="@+id/textLatitud" />
 </androidx.constraintlayout.widget.ConstraintLayout>
