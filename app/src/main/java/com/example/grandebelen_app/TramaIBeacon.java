@@ -25,7 +25,7 @@ public class TramaIBeacon {
     // Métodos GETTERS para obtener los atributos anteriormente declarados
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener prefijo
      *
      * @param No le pasamos nada
@@ -38,7 +38,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener uuid
      *
      * @param No le pasamos nada
@@ -51,7 +51,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener major
      *
      * @param No le pasamos nada
@@ -64,7 +64,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener minor
      *
      * @param No le pasamos nada
@@ -77,7 +77,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener txPower
      *
      * @param No le pasamos nada
@@ -90,7 +90,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener losBytes
      *
      * @param No le pasamos nada
@@ -103,7 +103,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener advFlags
      *
      * @param No le pasamos nada
@@ -116,7 +116,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener advHeader
      *
      * @param No le pasamos nada
@@ -129,7 +129,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener companyID
      *
      * @param No le pasamos nada
@@ -142,7 +142,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener iBeaconType
      *
      * @param No le pasamos nada
@@ -155,7 +155,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método get para obtener iBeaconLength
      *
      * @param No le pasamos nada
@@ -168,7 +168,7 @@ public class TramaIBeacon {
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Constructor de la clase al que le pasamos el array de bytes
      *
      * @param {Byte[]} bytes - Le pasamos el array de bytes

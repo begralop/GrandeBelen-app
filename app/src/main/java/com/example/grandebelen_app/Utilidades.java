@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Utilidades { // Declaramos la clase pública Utilidades
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma los strings a bytes
      *
      * @param {String} texto - Le pasamos un string
@@ -26,7 +26,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     } // ()
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma los strings a UUID
      *
      * @param {String} texto - Le pasamos un string
@@ -52,7 +52,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     } // ()
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma los UUID a string
      *
      * @param {UUID} uuid - Le pasamos un UUID
@@ -65,7 +65,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     } // ()
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma los UUID a hexString
      *
      * @param {UUID} uuid - Le pasamos un UUID
@@ -78,7 +78,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     } // ()
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma los bytes a string
      *
      * @param {byte[]} bytes - Le pasamos el array de bytes
@@ -99,7 +99,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma dos long a bytes
      *
      * @param {long} masSignificativos - Le pasamos un long
@@ -116,7 +116,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma los bytes a int
      *
      * @param {byte[]} bytes - Le pasamos el array de bytes
@@ -129,7 +129,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma los bytes a long
      *
      * @param {byte[]} bytes - Le pasamos el array de bytes
@@ -142,7 +142,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     }
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma los bytes a int
      *
      * @param {byte[]} bytes - Le pasamos el array de bytes
@@ -187,7 +187,7 @@ public class Utilidades { // Declaramos la clase pública Utilidades
     } // ()
 
     // -------------------------------------------------------------------------------
-    /*
+    /**
      * Método que transforma los strings a hexString
      *
      * @param {byte[]} bytes - Le pasamos el array de bytes

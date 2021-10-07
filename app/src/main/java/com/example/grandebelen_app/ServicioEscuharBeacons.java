@@ -20,7 +20,7 @@ public class ServicioEscuharBeacons  extends IntentService {
     private boolean seguir = true;
 
     // --------------------------------------------------------------
-    /*
+    /**
      * Método del servicio para escuchar beacons
      *
      * @param No le pasamos nada
@@ -53,7 +53,7 @@ public class ServicioEscuharBeacons  extends IntentService {
      */
 
     // --------------------------------------------------------------
-    /*
+    /**
      * Método para parar el servicio
      *
      * @param No le pasamos nada
@@ -78,7 +78,7 @@ public class ServicioEscuharBeacons  extends IntentService {
     }
 
     // --------------------------------------------------------------
-    /*
+    /**
      * Método para destruir el servicio
      *
      * @param No le pasamos nada
