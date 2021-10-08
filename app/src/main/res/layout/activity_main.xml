@@ -5,17 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".logicaFake.MainActivity">
 
+
     <Button
         android:id="@+id/botonBuscarDispositivosBTLE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:onClick="botonBuscarDispositivosBTLEPulsado"
         android:text="Buscar Dispositivos BTLE nou 4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:id="@+id/botonDetenerBusquedaDispositivosBTLE"
@@ -45,28 +45,52 @@
         android:id="@+id/txtMediciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="Escriba una medición"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/textLongitud"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="@+id/textLongitud"
-        app:layout_constraintTop_toBottomOf="@+id/textLongitud" />
+        app:layout_constraintEnd_toStartOf="@+id/btnInsertar2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
 
     <Button
         android:id="@+id/btnInsertar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="146dp"
+        android:layout_height="41dp"
         android:onClick="botonGuardarMedicion"
         android:text="Insertar medición"
         app:backgroundTint="@color/teal_700"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txtMediciones"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="@+id/txtMediciones"
+        app:layout_constraintEnd_toStartOf="@+id/btnInsertar4"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMediciones"
-        app:layout_constraintVertical_bias="0.062" />
+        app:layout_constraintVertical_bias="0.038" />
+
+    <Button
+        android:id="@+id/btnInsertar2"
+        android:layout_width="154dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="12dp"
+        android:onClick="botonMostrarUltimasMediciones"
+        android:text="Mostrar últimas"
+        app:backgroundTint="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLongitud" />
+
+    <Button
+        android:id="@+id/btnInsertar4"
+        android:layout_width="154dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="18dp"
+        android:onClick="botonMostrarTodasLasMediciones"
+        android:text="Mostrar todas"
+        app:backgroundTint="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnInsertar2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnInsertar2"
+        app:layout_constraintTop_toBottomOf="@+id/btnInsertar2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/boton_arrancar_servicio"
@@ -96,12 +120,24 @@
         android:id="@+id/textLatitud"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="12dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/boton_detener_servicio"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/boton_detener_servicio"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
+
+    <TextView
+        android:id="@+id/textLatitud2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInsertar"
+        app:layout_constraintVertical_bias="0.054" />
 
     <TextView
         android:id="@+id/textLongitud"
@@ -109,8 +145,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/textLatitud"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textLatitud"
-        app:layout_constraintTop_toBottomOf="@+id/textLatitud" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textLatitud"
+        app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
 </androidx.constraintlayout.widget.ConstraintLayout>
