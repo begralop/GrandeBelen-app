@@ -451,6 +451,49 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     /**
+     * Método para insertar cuantas mediciones y que devuelva las últimas mediciones indicadas
+     *
+     * @param {View} v
+     *
+     * @return No devuelve nada
+     */
+    // --------------------------------------------------------------
+    public void botonMostrarUltimasMediciones(View v) {
+
+        /*Medicion medicion = new Medicion(Integer.parseInt(txtMediciones.getText().toString()), latitud, longitud);
+
+        laLogica.guardarMedicion(medicion);
+
+        Log.d("", String.valueOf(medicion));
+
+         */
+
+    }
+
+    // --------------------------------------------------------------
+    /**
+     * Método para insertar cuantas mediciones y que devuelva las últimas mediciones indicadas
+     *
+     * @param {View} v
+     *
+     * @return No devuelve nada
+     */
+    // --------------------------------------------------------------
+    public void botonMostrarTodasLasMediciones(View v) {
+
+        /*Medicion medicion = new Medicion(Integer.parseInt(txtMediciones.getText().toString()), latitud, longitud);
+
+        laLogica.guardarMedicion(medicion);
+
+        Log.d("", String.valueOf(medicion));
+
+         */
+
+    }
+
+
+    // --------------------------------------------------------------
+    /**
      * Método On create
      *
      * @param Bundle savedInstanceState
