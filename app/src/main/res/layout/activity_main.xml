@@ -49,14 +49,15 @@
         android:ems="10"
         android:hint="Escriba una medición"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toStartOf="@+id/btnInsertar2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
 
     <Button
         android:id="@+id/btnInsertar"
-        android:layout_width="146dp"
-        android:layout_height="41dp"
+        android:layout_width="193dp"
+        android:layout_height="54dp"
         android:onClick="botonGuardarMedicion"
         android:text="Insertar medición"
         app:backgroundTint="@color/teal_700"
