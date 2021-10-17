@@ -494,6 +494,15 @@ public class MainActivity extends AppCompatActivity {
 
          */
 
+        laLogica.obtenerTodasLasMediciones(this);
+
+    }
+
+    public void abrirActividadConDatos(String todasMediciones){
+        Intent intent = new Intent(this,TodasMedicionesActivity.class);
+
+        intent.putExtra("datos", todasMediciones);
+        startActivity(intent);
     }
 
 
