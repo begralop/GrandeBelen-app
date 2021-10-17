@@ -25,6 +25,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
     Logica laLogica = new Logica();
 
-    TextView txtLatitud;
-    TextView txtLongitud;
     private LocationManager locManager;
     public Location loc;
 
@@ -423,8 +422,6 @@ public class MainActivity extends AppCompatActivity {
                 //Location wasnt gathered
             }else{
                 latitud = loc.getLatitude();
-                txtLatitud.setText(String.valueOf(latitud));
-                txtLongitud.setText(String.valueOf(longitud));
                 longitud = loc.getLongitude();
             }
         }
@@ -441,11 +438,19 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
     public void botonGuardarMedicion(View v) {
 
-        Medicion medicion = new Medicion(Integer.parseInt(txtMediciones.getText().toString()), latitud, longitud);
+        if(txtMediciones.getText().toString() == "null"){
 
-        laLogica.guardarMedicion(medicion);
 
-        Log.d("", String.valueOf(medicion));
+            Toast.makeText(getApplicationContext(), "¡No has introducido ningún valor!",Toast.LENGTH_SHORT);
+
+        }
+            Medicion medicion = new Medicion(Integer.parseInt(txtMediciones.getText().toString()), latitud, longitud);
+            laLogica.guardarMedicion(medicion);
+
+            Toast toast = Toast.makeText(getApplicationContext(), "¡Los datos se introdujeron correctamente!",Toast.LENGTH_SHORT);
+            toast.show();
+            Log.d("", String.valueOf(medicion));
+
 
     }
 
@@ -507,8 +512,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         txtMediciones = findViewById(R.id.txtMediciones);
-        txtLatitud = findViewById(R.id.textLatitud);
-        txtLongitud = findViewById(R.id.textLongitud);
 
         obtenerCoordenadas();
 

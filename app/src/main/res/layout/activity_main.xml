@@ -45,63 +45,77 @@
         android:id="@+id/txtMediciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Escriba una medición"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toStartOf="@+id/btnInsertar2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/boton_arrancar_servicio"
+        app:layout_constraintTop_toBottomOf="@+id/boton_arrancar_servicio" />
 
-    <Button
-        android:id="@+id/btnInsertar"
-        android:layout_width="193dp"
-        android:layout_height="54dp"
-        android:onClick="botonGuardarMedicion"
-        android:text="Insertar medición"
-        app:backgroundTint="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnInsertar4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMediciones"
-        app:layout_constraintVertical_bias="0.038" />
-
-    <Button
-        android:id="@+id/btnInsertar2"
-        android:layout_width="154dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="12dp"
-        android:onClick="botonMostrarUltimasMediciones"
-        android:text="Mostrar últimas"
-        app:backgroundTint="@color/teal_700"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLongitud" />
-
-    <Button
-        android:id="@+id/btnInsertar4"
-        android:layout_width="154dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="18dp"
-        android:onClick="botonMostrarTodasLasMediciones"
-        android:text="Mostrar todas"
-        app:backgroundTint="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnInsertar2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/btnInsertar2"
-        app:layout_constraintTop_toBottomOf="@+id/btnInsertar2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/boton_arrancar_servicio"
+    <EditText
+        android:id="@+id/txtMediciones2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Escriba una medición"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/txtMediciones"
+        app:layout_constraintTop_toBottomOf="@+id/txtMediciones" />
+
+    <Button
+        android:id="@+id/btnInsertar"
+        android:layout_width="147dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="12dp"
+        android:onClick="botonGuardarMedicion"
+        android:text="Insertar medición"
+        android:textSize="12sp"
+        app:backgroundTint="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="@+id/boton_detener_servicio"
+        app:layout_constraintStart_toEndOf="@+id/txtMediciones"
+        app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
+
+    <Button
+        android:id="@+id/btnInsertar2"
+        android:layout_width="147dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:onClick="botonMostrarUltimasMediciones"
+        android:text="Mostrar últimas"
+        android:textSize="12sp"
+        app:backgroundTint="@color/design_default_color_error"
+        app:layout_constraintEnd_toEndOf="@+id/btnInsertar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtMediciones2"
+        app:layout_constraintTop_toBottomOf="@+id/btnInsertar" />
+
+    <Button
+        android:id="@+id/btnInsertar4"
+        android:layout_width="217dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="12dp"
+        android:onClick="botonMostrarTodasLasMediciones"
+        android:text="Mostrar todas"
+        app:backgroundTint="@android:color/holo_orange_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMediciones2" />
+
+    <Button
+        android:id="@+id/boton_arrancar_servicio"
+        android:layout_width="133dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:onClick="botonArrancarServicioPulsado"
         android:text="Arrancar servicio"
-        app:layout_constraintEnd_toEndOf="@+id/botonBuscarNuestroDispositivoBTLE"
-        app:layout_constraintHorizontal_bias="0.484"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/botonBuscarNuestroDispositivoBTLE"
         app:layout_constraintTop_toBottomOf="@+id/botonBuscarNuestroDispositivoBTLE" />
 
@@ -112,41 +126,10 @@
         android:layout_marginTop="8dp"
         android:onClick="botonDetenerServicioPulsado"
         android:text="Detener servicio"
-        app:layout_constraintEnd_toEndOf="@+id/boton_arrancar_servicio"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="@+id/boton_arrancar_servicio"
-        app:layout_constraintTop_toBottomOf="@+id/boton_arrancar_servicio" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/botonBuscarNuestroDispositivoBTLE"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/boton_arrancar_servicio"
+        app:layout_constraintTop_toBottomOf="@+id/botonBuscarNuestroDispositivoBTLE" />
 
-    <TextView
-        android:id="@+id/textLatitud"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
-
-    <TextView
-        android:id="@+id/textLatitud2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnInsertar"
-        app:layout_constraintVertical_bias="0.054" />
-
-    <TextView
-        android:id="@+id/textLongitud"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textLatitud"
-        app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
 </androidx.constraintlayout.widget.ConstraintLayout>
