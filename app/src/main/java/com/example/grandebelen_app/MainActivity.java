@@ -457,9 +457,6 @@ public class MainActivity extends AppCompatActivity {
             toast2.show();
             Log.d("", String.valueOf(medicion));
 
-
-
-
     }
 
     // --------------------------------------------------------------
@@ -494,14 +491,14 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
     public void botonMostrarTodasLasMediciones(View v) {
 
-        laLogica.obtenerTodasLasMediciones(this);
-
+        laLogica.obtenerTodasLasMediciones(this); // Llamamos al método de la lógica para obtener laas mediciones
     }
 
     public void abrirActividadConDatos(String todasMediciones){
-        Intent intent = new Intent(this, TodasMedicionesActivity.class);
 
-        intent.putExtra("datos", todasMediciones);
+        Intent intent = new Intent(this, TodasMedicionesActivity.class); // Intent para abrir la segunda actividad
+
+        intent.putExtra("datos", todasMediciones); // Le pasamos los datos que serán los datos de las mediciones que le pasamos al método
         startActivity(intent);
     }
 

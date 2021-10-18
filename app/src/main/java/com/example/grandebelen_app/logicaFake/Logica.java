@@ -20,24 +20,11 @@ import com.example.grandebelen_app.Medicion;
 public class Logica extends AppCompatActivity {
 
     public void guardarMedicion(Medicion medicion) {
-        Log.d("clienterestandroid", "boton_enviar_pulsado");
-
 
         // ojo: creo que hay que crear uno nuevo cada vez
         PeticionarioREST elPeticionario = new PeticionarioREST();
 
-		/*
-
-		   enviarPeticion( "hola", function (res) {
-		   		res
-		   })
-
-        elPeticionario.hacerPeticionREST("GET",  "http://158.42.144.126:8080/prueba", null,
-			(int codigo, String cuerpo) => { } );
-
-		   */
-        //la contrabarra es pa clavar la cometa dins del string sense tancar el stringç
-        //http://localhost/phpmyadmin/sql.php?db=android_mysql&table=datosmedidos&pos=0
+        // Le pasamos como string de JSON todos los datos que queremos que almacene en la base de datos
         String textoJSON = "{\"Medicion\":\"" + medicion.getMedicion() + "\", \"Latitud\":\"" + medicion.getLatitud() + " \", \"Longitud\":\"" + medicion.getLongitud()  + " \", \"Major\":\"" + medicion.getMajor() + " \", \"Minor\":\"" + medicion.getMinor() + "\"}";
         elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_app_sprint0/src/logica/guardarMediciones.php", textoJSON,
                 new PeticionarioREST.RespuestaREST() {
@@ -51,26 +38,13 @@ public class Logica extends AppCompatActivity {
     }
 
     public void obtenerUltimasMediciones(int cuantas) {
-        Log.d("clienterestandroid", "boton_enviar_pulsado");
 
 
         // ojo: creo que hay que crear uno nuevo cada vez
         PeticionarioREST elPeticionario = new PeticionarioREST();
 
-		/*
 
-		   enviarPeticion( "hola", function (res) {
-		   		res
-		   })
-
-        elPeticionario.hacerPeticionREST("GET",  "http://158.42.144.126:8080/prueba", null,
-			(int codigo, String cuerpo) => { } );
-
-		   */
-        //la contrabarra es pa clavar la cometa dins del string sense tancar el stringç
-        //http://localhost/phpmyadmin/sql.php?db=android_mysql&table=datosmedidos&pos=0
-        //String textoJSON = "{\"Medicion\":\"" + medicion.getMedicion() + "\", \"Latitud\":\"" + medicion.getLatitud() + " \", \"Longitud\":\"" + medicion.getLongitud() + "\"}";
-        /*elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_app_sprint0/guardarMediciones.php", textoJSON,
+       /*elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_app_sprint0/guardarMediciones.php", textoJSON,
                 new PeticionarioREST.RespuestaREST() {
                     @Override
                     public void callback(int codigo, String cuerpo) {
@@ -89,13 +63,13 @@ public class Logica extends AppCompatActivity {
         PeticionarioREST elPeticionario = new PeticionarioREST();
 
 
+        // Hacemos la petición para obtener todas las mediciones de la base de datos
         elPeticionario.hacerPeticionREST("GET", "http://192.168.64.2/backend_app_sprint0/src/logica/obtenerTodasMediciones.php", null,
                 new PeticionarioREST.RespuestaREST() {
                     @Override
                     public void callback(int codigo, String cuerpo) {
 
-                        ((MainActivity)context).abrirActividadConDatos(cuerpo);
-
+                        ((MainActivity)context).abrirActividadConDatos(cuerpo); // LLamamos al método del main para pasarle todas las mediciones
 
                     }
                 }

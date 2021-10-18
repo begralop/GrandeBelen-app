@@ -32,9 +32,9 @@ public class TodasMedicionesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_todas_mediciones);
         txtMedicis = findViewById(R.id.txtMediciones);
 
-        String datosMedis = getIntent().getStringExtra("datos");
+        String datosMedis = getIntent().getStringExtra("datos"); // Intent para obtener los datos pasados del edit text de Main
 
-        txtMedicis.setText(datosMedis);
+        txtMedicis.setText(datosMedis); // Mostramos los datos
 
     }
 }
