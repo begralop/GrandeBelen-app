@@ -54,19 +54,6 @@
         app:layout_constraintStart_toStartOf="@+id/boton_arrancar_servicio"
         app:layout_constraintTop_toBottomOf="@+id/boton_arrancar_servicio" />
 
-    <EditText
-        android:id="@+id/txtMediciones2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="¿Cuántas últimas?"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/txtMediciones"
-        app:layout_constraintTop_toBottomOf="@+id/txtMediciones" />
-
     <Button
         android:id="@+id/btnInsertar"
         android:layout_width="147dp"
@@ -82,20 +69,6 @@
         app:layout_constraintTop_toBottomOf="@+id/boton_detener_servicio" />
 
     <Button
-        android:id="@+id/btnInsertar2"
-        android:layout_width="147dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="8dp"
-        android:onClick="botonMostrarUltimasMediciones"
-        android:text="Mostrar últimas"
-        android:textSize="12sp"
-        app:backgroundTint="@color/design_default_color_error"
-        app:layout_constraintEnd_toEndOf="@+id/btnInsertar"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/txtMediciones2"
-        app:layout_constraintTop_toBottomOf="@+id/btnInsertar" />
-
-    <Button
         android:id="@+id/btnInsertar4"
         android:layout_width="217dp"
         android:layout_height="52dp"
@@ -104,9 +77,8 @@
         android:text="Mostrar todas"
         app:backgroundTint="@android:color/holo_orange_dark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtMediciones2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMediciones" />
 
     <Button
         android:id="@+id/boton_arrancar_servicio"
