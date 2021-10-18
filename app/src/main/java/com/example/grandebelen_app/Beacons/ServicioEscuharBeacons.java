@@ -1,4 +1,13 @@
-package com.example.grandebelen_app;
+package com.example.grandebelen_app.Beacons;
+
+// --------------------------------------------------------------
+//
+// ServicioEscuharBeacons
+// Belén Grande López
+// 2021-10-18
+// Clase ServicioEscuharBeacons para escuchar los beacons
+//
+// --------------------------------------------------------------
 
 import android.app.IntentService;
 import android.app.Service;
@@ -19,15 +28,8 @@ public class ServicioEscuharBeacons  extends IntentService {
 
     private boolean seguir = true;
 
-    // --------------------------------------------------------------
-    /**
-     * Método del servicio para escuchar beacons
-     *
-     * @param No le pasamos nada
-     *
-     * @return No devuelve nada
-     */
-    // --------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
     public ServicioEscuharBeacons(  ) {
         super("HelloIntentService");
 
@@ -52,15 +54,8 @@ public class ServicioEscuharBeacons  extends IntentService {
 
      */
 
-    // --------------------------------------------------------------
-    /**
-     * Método para parar el servicio
-     *
-     * @param No le pasamos nada
-     *
-     * @return No devuelve nada
-     */
-    // --------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
     public void parar () {
 
         Log.d(ETIQUETA_LOG, " ServicioEscucharBeacons.parar() " );
@@ -77,15 +72,8 @@ public class ServicioEscuharBeacons  extends IntentService {
 
     }
 
-    // --------------------------------------------------------------
-    /**
-     * Método para destruir el servicio
-     *
-     * @param No le pasamos nada
-     *
-     * @return No devuelve nada
-     */
-    // --------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------------
     public void onDestroy() {
 
         Log.d(ETIQUETA_LOG, " ServicioEscucharBeacons.onDestroy() " );
@@ -135,7 +123,5 @@ public class ServicioEscuharBeacons  extends IntentService {
 
     }
 } // class
-// -------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------

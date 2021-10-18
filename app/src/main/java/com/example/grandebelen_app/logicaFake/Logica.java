@@ -1,11 +1,21 @@
 package com.example.grandebelen_app.logicaFake;
 
+// --------------------------------------------------------------
+//
+// Logica
+// Belén Grande López
+// 2021-10-7
+// Clase Logica donde se incluyen los metodos de la logica de negocio que llama a los del backend conectado a la bbdd
+//
+// --------------------------------------------------------------
+
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.grandebelen_app.MainActivity;
+import com.example.grandebelen_app.Medicion;
 
 public class Logica extends AppCompatActivity {
 
@@ -28,7 +38,7 @@ public class Logica extends AppCompatActivity {
 		   */
         //la contrabarra es pa clavar la cometa dins del string sense tancar el stringç
         //http://localhost/phpmyadmin/sql.php?db=android_mysql&table=datosmedidos&pos=0
-        String textoJSON = "{\"Medicion\":\"" + medicion.getMedicion() + "\", \"Latitud\":\"" + medicion.getLatitud() + " \", \"Longitud\":\"" + medicion.getLongitud() + "\"}";
+        String textoJSON = "{\"Medicion\":\"" + medicion.getMedicion() + "\", \"Latitud\":\"" + medicion.getLatitud() + " \", \"Longitud\":\"" + medicion.getLongitud()  + " \", \"Major\":\"" + medicion.getMajor() + " \", \"Minor\":\"" + medicion.getMinor() + "\"}";
         elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_app_sprint0/src/logica/guardarMediciones.php", textoJSON,
                 new PeticionarioREST.RespuestaREST() {
                     @Override

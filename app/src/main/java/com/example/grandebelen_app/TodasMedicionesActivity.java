@@ -1,4 +1,13 @@
-package com.example.grandebelen_app.logicaFake;
+package com.example.grandebelen_app;
+
+// --------------------------------------------------------------
+//
+// TodasMedicionesActivity
+// Belén Grande López
+// 2021-10-17
+// Clase TodasMedicionesActivity donde está el onCreate con la llamada al intent de main para mostrar todas las mediciones de la bbdd
+//
+// --------------------------------------------------------------
 
 import android.content.Intent;
 import android.os.Build;

@@ -1,5 +1,5 @@
 
-package com.example.grandebelen_app;
+package com.example.grandebelen_app.Beacons;
 
 import java.util.Arrays;
 

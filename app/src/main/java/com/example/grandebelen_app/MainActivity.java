@@ -1,6 +1,13 @@
-package com.example.grandebelen_app.logicaFake;
-// ------------------------------------------------------------------
-// ------------------------------------------------------------------
+package com.example.grandebelen_app;
+
+// --------------------------------------------------------------
+//
+// MainActivity
+// Belén Grande López
+// 2021-10-7
+// Clase MainActivity donde están los métodos que comprenden los botones así como obtener coordenadas
+//
+// --------------------------------------------------------------
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -9,22 +16,15 @@ import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanResult;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -32,14 +32,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.grandebelen_app.R;
-import com.example.grandebelen_app.ServicioEscuharBeacons;
-import com.example.grandebelen_app.TramaIBeacon;
-import com.example.grandebelen_app.Utilidades;
+import com.example.grandebelen_app.Beacons.ServicioEscuharBeacons;
+import com.example.grandebelen_app.Beacons.TramaIBeacon;
+import com.example.grandebelen_app.logicaFake.Logica;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 
 // ------------------------------------------------------------------
 // ------------------------------------------------------------------
@@ -54,8 +51,11 @@ public class MainActivity extends AppCompatActivity {
     private LocationManager locManager;
     public Location loc;
 
-    double longitud;
-    double latitud;
+    public double longitud;
+    public double latitud;
+
+    public int major;
+    public int minor;
 
 
     // --------------------------------------------------------------
@@ -125,17 +125,20 @@ public class MainActivity extends AppCompatActivity {
      */
     // --------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void mostrarInformacionDispositivoBTLE(ScanResult resultado) {
+    private void mostrarInformacionDispositivoBTLE( ScanResult resultado ) {
 
         BluetoothDevice bluetoothDevice = resultado.getDevice();
         byte[] bytes = resultado.getScanRecord().getBytes();
         int rssi = resultado.getRssi();
+        String nombre = bluetoothDevice.getName() + "";
+        if(nombre.equals("natxo")) {
 
-        Log.d(ETIQUETA_LOG, " ******************");
-        Log.d(ETIQUETA_LOG, " ** DISPOSITIVO DETECTADO BTLE ****** ");
-        Log.d(ETIQUETA_LOG, " ******************");
-        Log.d(ETIQUETA_LOG, " nombre = " + bluetoothDevice.getName());
-        Log.d(ETIQUETA_LOG, " toString = " + bluetoothDevice.toString());
+
+            Log.d(ETIQUETA_LOG, " ******************");
+            Log.d(ETIQUETA_LOG, " ** DISPOSITIVO DETECTADO BTLE ****** ");
+            Log.d(ETIQUETA_LOG, " ******************");
+            Log.d(ETIQUETA_LOG, " nombre = " + bluetoothDevice.getName());
+            Log.d(ETIQUETA_LOG, " toString = " + bluetoothDevice.toString());
 
         /*
         ParcelUuid[] puuids = bluetoothDevice.getUuids();
@@ -144,31 +147,35 @@ public class MainActivity extends AppCompatActivity {
            // Log.d(ETIQUETA_LOG, " uuid = " + puuids[0].toString());
         }*/
 
-        Log.d(ETIQUETA_LOG, " dirección = " + bluetoothDevice.getAddress());
-        Log.d(ETIQUETA_LOG, " rssi = " + rssi);
+            Log.d(ETIQUETA_LOG, " dirección = " + bluetoothDevice.getAddress());
+            Log.d(ETIQUETA_LOG, " rssi = " + rssi);
 
-        Log.d(ETIQUETA_LOG, " bytes = " + new String(bytes));
-        Log.d(ETIQUETA_LOG, " bytes (" + bytes.length + ") = " + Utilidades.bytesToHexString(bytes));
+            Log.d(ETIQUETA_LOG, " bytes = " + new String(bytes));
+            Log.d(ETIQUETA_LOG, " bytes (" + bytes.length + ") = " + Utilidades.bytesToHexString(bytes));
 
-        TramaIBeacon tib = new TramaIBeacon(bytes);
+            TramaIBeacon tib = new TramaIBeacon(bytes);
 
-        Log.d(ETIQUETA_LOG, " ----------------------------------------------------");
-        Log.d(ETIQUETA_LOG, " prefijo  = " + Utilidades.bytesToHexString(tib.getPrefijo()));
-        Log.d(ETIQUETA_LOG, "          advFlags = " + Utilidades.bytesToHexString(tib.getAdvFlags()));
-        Log.d(ETIQUETA_LOG, "          advHeader = " + Utilidades.bytesToHexString(tib.getAdvHeader()));
-        Log.d(ETIQUETA_LOG, "          companyID = " + Utilidades.bytesToHexString(tib.getCompanyID()));
-        Log.d(ETIQUETA_LOG, "          iBeacon type = " + Integer.toHexString(tib.getiBeaconType()));
-        Log.d(ETIQUETA_LOG, "          iBeacon length 0x = " + Integer.toHexString(tib.getiBeaconLength()) + " ( "
-                + tib.getiBeaconLength() + " ) ");
-        Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToHexString(tib.getUUID()));
-        Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToString(tib.getUUID()));
-        Log.d(ETIQUETA_LOG, " major  = " + Utilidades.bytesToHexString(tib.getMajor()) + "( "
-                + Utilidades.bytesToInt(tib.getMajor()) + " ) ");
-        Log.d(ETIQUETA_LOG, " minor  = " + Utilidades.bytesToHexString(tib.getMinor()) + "( "
-                + Utilidades.bytesToInt(tib.getMinor()) + " ) ");
-        Log.d(ETIQUETA_LOG, " txPower  = " + Integer.toHexString(tib.getTxPower()) + " ( " + tib.getTxPower() + " )");
-        Log.d(ETIQUETA_LOG, " ******************");
+            Log.d(ETIQUETA_LOG, " ----------------------------------------------------");
+            Log.d(ETIQUETA_LOG, " prefijo  = " + Utilidades.bytesToHexString(tib.getPrefijo()));
+            Log.d(ETIQUETA_LOG, "          advFlags = " + Utilidades.bytesToHexString(tib.getAdvFlags()));
+            Log.d(ETIQUETA_LOG, "          advHeader = " + Utilidades.bytesToHexString(tib.getAdvHeader()));
+            Log.d(ETIQUETA_LOG, "          companyID = " + Utilidades.bytesToHexString(tib.getCompanyID()));
+            Log.d(ETIQUETA_LOG, "          iBeacon type = " + Integer.toHexString(tib.getiBeaconType()));
+            Log.d(ETIQUETA_LOG, "          iBeacon length 0x = " + Integer.toHexString(tib.getiBeaconLength()) + " ( "
+                    + tib.getiBeaconLength() + " ) ");
+            Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToHexString(tib.getUUID()));
+            Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToString(tib.getUUID()));
+            Log.d(ETIQUETA_LOG, " major  = " + Utilidades.bytesToHexString(tib.getMajor()) + "( "
+                    + Utilidades.bytesToInt(tib.getMajor()) + " ) ");
+            Log.d(ETIQUETA_LOG, " minor  = " + Utilidades.bytesToHexString(tib.getMinor()) + "( "
+                    + Utilidades.bytesToInt(tib.getMinor()) + " ) ");
+            Log.d(ETIQUETA_LOG, " txPower  = " + Integer.toHexString(tib.getTxPower()) + " ( " + tib.getTxPower() + " )");
+            Log.d(ETIQUETA_LOG, " ******************");
 
+
+            minor=Utilidades.bytesToInt(tib.getMinor());
+            major=Utilidades.bytesToInt(tib.getMajor());
+        }
     } // ()
 
     // --------------------------------------------------------------
@@ -273,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
         //this.buscarEsteDispositivoBTLE( Utilidades.stringToUUID( "EPSG-GTI-PROY-3A" ) );
 
         //this.buscarEsteDispositivoBTLE( "EPSG-GTI-PROY-3A" );
-        this.buscarEsteDispositivoBTLE("fistro");
+        this.buscarEsteDispositivoBTLE("natxo");
 
     } // ()
 
@@ -440,16 +447,17 @@ public class MainActivity extends AppCompatActivity {
 
         if(txtMediciones.getText().toString() == "null"){
 
-
-            Toast.makeText(getApplicationContext(), "¡No has introducido ningún valor!",Toast.LENGTH_SHORT);
+            Toast toast1 = Toast.makeText(getApplicationContext(), "¡No has introducido ningún valor!",Toast.LENGTH_SHORT);
+            toast1.show();
 
         }
-            Medicion medicion = new Medicion(Integer.parseInt(txtMediciones.getText().toString()), latitud, longitud);
-            laLogica.guardarMedicion(medicion);
-
-            Toast toast = Toast.makeText(getApplicationContext(), "¡Los datos se introdujeron correctamente!",Toast.LENGTH_SHORT);
-            toast.show();
+            Medicion medicion = new Medicion(Integer.parseInt(txtMediciones.getText().toString()), latitud, longitud, major, minor); // Creamos un objeto medicion al que le pasamos la medicion que se ha escrito en el teléfono, la latitud, la longitud, el major y el minor.
+            laLogica.guardarMedicion(medicion); // Llamamos al método de la lógica para guardar la medición pasándole esta
+            Toast toast2 = Toast.makeText(getApplicationContext(), "¡Los datos se introdujeron correctamente!",Toast.LENGTH_SHORT);
+            toast2.show();
             Log.d("", String.valueOf(medicion));
+
+
 
 
     }
@@ -486,20 +494,12 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
     public void botonMostrarTodasLasMediciones(View v) {
 
-        /*Medicion medicion = new Medicion(Integer.parseInt(txtMediciones.getText().toString()), latitud, longitud);
-
-        laLogica.guardarMedicion(medicion);
-
-        Log.d("", String.valueOf(medicion));
-
-         */
-
         laLogica.obtenerTodasLasMediciones(this);
 
     }
 
     public void abrirActividadConDatos(String todasMediciones){
-        Intent intent = new Intent(this,TodasMedicionesActivity.class);
+        Intent intent = new Intent(this, TodasMedicionesActivity.class);
 
         intent.putExtra("datos", todasMediciones);
         startActivity(intent);
