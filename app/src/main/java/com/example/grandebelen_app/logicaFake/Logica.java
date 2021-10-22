@@ -19,6 +19,16 @@ import com.example.grandebelen_app.Medicion;
 
 public class Logica extends AppCompatActivity {
 
+    /**
+     * Medicion: medicion --> guardarMedicion() -->
+     *
+     * Método para guardar las mediciones, le pasamos una medicion
+     *
+     * @param medicion Medicion
+     *
+     * @return No devuelve nada
+     */
+
     public void guardarMedicion(Medicion medicion) {
 
         // ojo: creo que hay que crear uno nuevo cada vez
@@ -36,6 +46,16 @@ public class Logica extends AppCompatActivity {
         );
 
     }
+
+    /**
+     * Medicion: medicion --> obtenerUltimasMediciones() -->
+     *
+     * Método para obtener las últimas mediciones, le pasamos un entero
+     *
+     * @param cuantas int
+     *
+     * @return No devuelve nada
+     */
 
     public void obtenerUltimasMediciones(int cuantas) {
 
@@ -56,6 +76,16 @@ public class Logica extends AppCompatActivity {
          */
 
     }
+
+    /**
+     * Context: context --> obtenerTodasLasMediciones() -->
+     *
+     * Método para obtener todas las mediciones, le pasamos un context para que obtenga la clase Main
+     *
+     * @param context Context
+     *
+     * @return No devuelve nada
+     */
 
     public void obtenerTodasLasMediciones(Context context) {
 

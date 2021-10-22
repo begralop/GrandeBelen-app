@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         byte[] bytes = resultado.getScanRecord().getBytes();
         int rssi = resultado.getRssi();
         String nombre = bluetoothDevice.getName() + "";
-        if(nombre.equals("natxo")) {
+        if(nombre.equals("belen")) {
 
 
             Log.d(ETIQUETA_LOG, " ******************");
@@ -280,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
         //this.buscarEsteDispositivoBTLE( Utilidades.stringToUUID( "EPSG-GTI-PROY-3A" ) );
 
         //this.buscarEsteDispositivoBTLE( "EPSG-GTI-PROY-3A" );
-        this.buscarEsteDispositivoBTLE("natxo");
+        this.buscarEsteDispositivoBTLE("belen");
 
     } // ()
 
