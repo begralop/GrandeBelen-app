@@ -9,9 +9,9 @@ public class Logica {
     private Object Medicion;
 
     public void guardarMedicion(Medicion medicion) {
-        Log.d("clienterestandroid", "boton_enviar_pulsado");
 
 
+            Log.d("test", "entra a guardar medicion");
         // ojo: creo que hay que crear uno nuevo cada vez
         PeticionarioREST elPeticionario = new PeticionarioREST();
 
@@ -28,11 +28,11 @@ public class Logica {
         //la contrabarra es pa clavar la cometa dins del string sense tancar el stringç
         //http://localhost/phpmyadmin/sql.php?db=android_mysql&table=datosmedidos&pos=0
         String textoJSON = "{\"Medicion\":\"" + medicion.getMedicion() + "\", \"Latitud\":\"" + medicion.getLatitud() + " \", \"Longitud\":\"" + medicion.getLongitud() + "\"}";
-        elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_app_sprint0/guardarMediciones.php", textoJSON,
+        elPeticionario.hacerPeticionREST("POST", "http://192.168.64.2/backend_app_sprint0/src/logica/guardarMediciones.php", textoJSON,
                 new PeticionarioREST.RespuestaREST() {
                     @Override
                     public void callback(int codigo, String cuerpo) {
-                        Log.d("" ,"Se ha insertado correctamente");
+                        Log.d("test" ,"Se ha insertado correctamente");
                     }
                 }
         );
