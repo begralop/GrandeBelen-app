@@ -180,10 +180,13 @@ public class MainActivity extends AppCompatActivity {
 
            Logica logica = new Logica();
 
+
+           obtenerCoordenadas();
            Medicion medicion = new Medicion((int) minor, latitud,longitud);
 
            logica.guardarMedicion(medicion);
 
+           Log.d("test", String.valueOf(major));
            Log.d("test", String.valueOf(medicion.getMedicion()));
         }
 
@@ -441,8 +444,8 @@ public class MainActivity extends AppCompatActivity {
                 //Location wasnt gathered
             }else{
                 latitud = loc.getLatitude();
-                txtLatitud.setText(String.valueOf(latitud));
-                txtLongitud.setText(String.valueOf(longitud));
+                //txtLatitud.setText(String.valueOf(latitud));
+               // txtLongitud.setText(String.valueOf(longitud));
                 longitud = loc.getLongitude();
             }
         }
