@@ -1,0 +1,26 @@
+{
+  "name": "com.example.grandebelen_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/begralop/GrandeBelen-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/begralop/GrandeBelen-app/issues"
+  },
+  "homepage": "https://github.com/begralop/GrandeBelen-app#readme",
+  "devDependencies": {
+    "mocha": "^9.1.3"
+  }
+}

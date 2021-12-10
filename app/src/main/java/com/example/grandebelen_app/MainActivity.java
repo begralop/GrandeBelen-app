@@ -25,6 +25,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.location.Location;
 import android.location.LocationManager;
+<<<<<<< HEAD:app/src/main/java/com/example/grandebelen_app/MainActivity.java
+=======
+import android.location.LocationProvider;
+import android.widget.TextView;
+>>>>>>> metodoObtenerTodasLasMediciones:app/src/main/java/com/example/grandebelen_app/logicaFake/MainActivity.java
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -56,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     public int major;
     public int minor;
+
+    double major;
+    double minor;
 
 
     // --------------------------------------------------------------
@@ -130,10 +138,15 @@ public class MainActivity extends AppCompatActivity {
         BluetoothDevice bluetoothDevice = resultado.getDevice();
         byte[] bytes = resultado.getScanRecord().getBytes();
         int rssi = resultado.getRssi();
+<<<<<<< HEAD:app/src/main/java/com/example/grandebelen_app/MainActivity.java
         String nombre = bluetoothDevice.getName() + "";
         if(nombre.equals("belen")) {
 
 
+=======
+        String name = bluetoothDevice.getName() + "";
+        if(name.equals("belen")){
+>>>>>>> metodoObtenerTodasLasMediciones:app/src/main/java/com/example/grandebelen_app/logicaFake/MainActivity.java
             Log.d(ETIQUETA_LOG, " ******************");
             Log.d(ETIQUETA_LOG, " ** DISPOSITIVO DETECTADO BTLE ****** ");
             Log.d(ETIQUETA_LOG, " ******************");
@@ -172,10 +185,29 @@ public class MainActivity extends AppCompatActivity {
             Log.d(ETIQUETA_LOG, " txPower  = " + Integer.toHexString(tib.getTxPower()) + " ( " + tib.getTxPower() + " )");
             Log.d(ETIQUETA_LOG, " ******************");
 
+<<<<<<< HEAD:app/src/main/java/com/example/grandebelen_app/MainActivity.java
 
             minor=Utilidades.bytesToInt(tib.getMinor());
             major=Utilidades.bytesToInt(tib.getMajor());
         }
+=======
+           major = Utilidades.bytesToInt(tib.getMajor());
+           minor = Utilidades.bytesToInt(tib.getMinor());
+
+           Logica logica = new Logica();
+
+
+           obtenerCoordenadas();
+           Medicion medicion = new Medicion((int) minor, latitud,longitud);
+
+           logica.guardarMedicion(medicion);
+
+           Log.d("test", String.valueOf(major));
+           Log.d("test", String.valueOf(medicion.getMedicion()));
+        }
+
+
+>>>>>>> metodoObtenerTodasLasMediciones:app/src/main/java/com/example/grandebelen_app/logicaFake/MainActivity.java
     } // ()
 
     // --------------------------------------------------------------
@@ -429,6 +461,11 @@ public class MainActivity extends AppCompatActivity {
                 //Location wasnt gathered
             }else{
                 latitud = loc.getLatitude();
+<<<<<<< HEAD:app/src/main/java/com/example/grandebelen_app/MainActivity.java
+=======
+                //txtLatitud.setText(String.valueOf(latitud));
+               // txtLongitud.setText(String.valueOf(longitud));
+>>>>>>> metodoObtenerTodasLasMediciones:app/src/main/java/com/example/grandebelen_app/logicaFake/MainActivity.java
                 longitud = loc.getLongitude();
             }
         }
@@ -445,6 +482,7 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
     public void botonGuardarMedicion(View v) {
 
+<<<<<<< HEAD:app/src/main/java/com/example/grandebelen_app/MainActivity.java
         if(txtMediciones.getText().toString() == "null"){
 
             Toast toast1 = Toast.makeText(getApplicationContext(), "¡No has introducido ningún valor!",Toast.LENGTH_SHORT);
@@ -456,6 +494,9 @@ public class MainActivity extends AppCompatActivity {
             Toast toast2 = Toast.makeText(getApplicationContext(), "¡Los datos se introdujeron correctamente!",Toast.LENGTH_SHORT);
             toast2.show();
             Log.d("", String.valueOf(medicion));
+=======
+
+>>>>>>> metodoObtenerTodasLasMediciones:app/src/main/java/com/example/grandebelen_app/logicaFake/MainActivity.java
 
     }
 
@@ -517,7 +558,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD:app/src/main/java/com/example/grandebelen_app/MainActivity.java
         txtMediciones = findViewById(R.id.txtMediciones);
+=======
+>>>>>>> metodoObtenerTodasLasMediciones:app/src/main/java/com/example/grandebelen_app/logicaFake/MainActivity.java
 
         obtenerCoordenadas();
 

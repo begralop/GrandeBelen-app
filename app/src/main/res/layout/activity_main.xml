@@ -41,6 +41,7 @@
         app:layout_constraintStart_toStartOf="@+id/botonDetenerBusquedaDispositivosBTLE"
         app:layout_constraintTop_toBottomOf="@+id/botonDetenerBusquedaDispositivosBTLE" />
 
+<<<<<<< HEAD
     <EditText
         android:id="@+id/txtMediciones"
         android:layout_width="wrap_content"
@@ -80,6 +81,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMediciones" />
 
+=======
+>>>>>>> metodoObtenerTodasLasMediciones
     <Button
         android:id="@+id/boton_arrancar_servicio"
         android:layout_width="133dp"
@@ -98,10 +101,17 @@
         android:layout_marginTop="8dp"
         android:onClick="botonDetenerServicioPulsado"
         android:text="Detener servicio"
+<<<<<<< HEAD
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/botonBuscarNuestroDispositivoBTLE"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/boton_arrancar_servicio"
         app:layout_constraintTop_toBottomOf="@+id/botonBuscarNuestroDispositivoBTLE" />
+=======
+        app:layout_constraintEnd_toEndOf="@+id/boton_arrancar_servicio"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="@+id/boton_arrancar_servicio"
+        app:layout_constraintTop_toBottomOf="@+id/boton_arrancar_servicio" />
+>>>>>>> metodoObtenerTodasLasMediciones
 
 </androidx.constraintlayout.widget.ConstraintLayout>
